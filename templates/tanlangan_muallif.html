@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tanlangan Muallif</title>
+</head>
+<body>
+  <h1 style="text-align: center;">Tanlangan Muallif malumoti</h1>
+  <br>
+  <hr>
+  <br>
+  <h3> {{muallif.id}}.      {{muallif.ism}}</h3>
+  <br>
+  <h3> Tugilgan yili:{{muallif.tugilgan_yil}}</h3>
+  <br>
+  {% if muallif.tirik %}
+  <h2>Tirik</h2>
+  {%else%}
+  <h2>olgan</h2>
+  {%endif%}
+
+  <br>
+  <hr>
+  <br>
+  <button type="submit"><a href="/muallif_ochir/{{muallif.id}}/">O'chirish</a></button>
+  <h2>Tanlangan muallif malumotlari tahrirlash</h2>
+  <form method="post">{%csrf_token%}
+    <label>Ismi</label>
+    <input type="text" name="i" value="{{muallif.ism}}">
+    <label>Jinsi</label>
+    <select name="jins">
+
+      <option value="Erkak">Erkak</option>
+      <option value="Ayol">Ayol</option>
+
+
+
+
+
+    </select>
+    <label>Kitob soni</label>
+    <input type="number" name="k_s" value="{{muallif.kitob_soni}}">
+
+    <label>Tirik</label>
+        {% if muallif.tirik %}
+        <input type="checkbox" name="t" checked>
+        {% else %}
+        <input type="checkbox" name="t" >
+        {%endif%}
+    <label>Tug'ilgan yili</label>
+    <input type="date" name="yil" value="{{muallif.tugilgan_yil}}">
+    <button type="submit">Yangilash</button>
+
+    <a href="/talabalar/"><button>Orqaga</button></a>
+
+  </form>
+
+</body>
+</html>

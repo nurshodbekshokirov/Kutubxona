@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adminlar</title>
+</head>
+<body>
+    <form action="/adminlar/" method="get">{% csrf_token %}
+        <input type="text" name="qidirish" >
+        <button type="submit">Qidirish</button>
+
+    </form>
+    <br><br>
+    <form action="/adminlar/" method="post">{% csrf_token %}
+        {{forma.as_p}}
+        <button type="submit">Qo'shish</button>
+    </form>
+
+    <h2>Adminlar</h2>
+    {% for i in adminlar %}
+    <h3>{{i.id}}.<a href="/tanlangan_admin/{{i.id}}/">{{i.ism}}</a> </h3>
+    {% endfor %}
+
+</body>
+</html>

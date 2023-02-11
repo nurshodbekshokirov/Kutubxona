@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin malumoti</title>
+</head>
+<body>
+  <h2 >Tanlangan admin malumoti</h2>
+  <br>
+  <h3>{{admin.id}}. Ismi.{{admin.ism}}.<br>Ish vaqti:{{admin.ish_vaqti}}</h3>
+  <button><a href="/adminlar_delete/{{admin.id}}/"> O'chirish </a></button>
+  <h2>Tanlangan admin malumotini tahrirlash</h2>
+  <form method="post">{%csrf_token%}
+      {{forma.as_p}}
+      <button type="submit">Yangilash</button>
+
+      <a href="/talabalar/"><button>Orqaga</button></a>
+
+
+  </form>
+</body>
+</html>

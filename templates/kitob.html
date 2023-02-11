@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitoblar</title>
+
+</head>
+<body>
+  <h1>Kitoblar malumoti</h1>
+  <form action="/kitoblar/" method="POST">{% csrf_token %}
+      {{forma.as_p}}
+
+
+      <button type="submit">Qo'shish</button>
+
+  </form>
+  <br>
+  <br>
+  <br>
+  <form action="/kitoblar/" method="get" >{% csrf_token %}
+        <input type="text" name="qidirish" >
+        <button type="submit">Qidirish</button>
+
+  </form>
+
+  {% for kitob in kitoblar %}
+  <h3>{{kitob.id}}. <a href="/tanlangan_kitob/{{kitob.id}}/">{{kitob.nom}}</a></h3>
+  {% endfor %}
+
+</body>
+</html>

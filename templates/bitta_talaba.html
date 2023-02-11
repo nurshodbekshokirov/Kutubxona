@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Tanlangan talaba malumoti👨‍🎓</h1>
+    <hr>
+    <br>
+    <form method="post">{% csrf_token %}
+        <label>Ism: </label>
+        <input type="text" name="i" value="{{talaba.ism}}">
+        <br>
+        <br>
+        <label>Kurs: </label>
+        <input type="number" name="k" value="{{talaba.kurs}}">
+        <br>
+        <br>
+        <label>Kitob soni: </label>
+        <input type="number" name="k_s" value="{{talaba.kitob_soni}}">
+        <br><br>
+        <label>Bitiruvchi</label>
+        {% if talaba.bitiruvchi %}
+        <input type="checkbox" name="b" checked>
+        {% else %}
+        <input type="checkbox" name="b" >
+        {%endif%}
+        <button type="submit">Yangilash</button>
+
+        <a href="/talabalar/"><button>Orqaga</button></a>
+
+    </form>
+    <button type="submit"><a href="/talaba_ochirish/{{talaba.id}}/">O'chirish</a></button>
+    <br>
+    <br>
+    <hr>
+    <br>
+
+
+
+</body>
+</html>

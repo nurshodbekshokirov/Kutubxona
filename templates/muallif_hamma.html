@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mualliflar</title>
+</head>
+<body>
+    <h1>Muallif </h1>
+    <br>
+    <hr>
+    <form action="/mualliflar/" method="POST"> {% csrf_token %}
+        <input type="text" name="qidirish" >
+        <button type="submit">Qidirish</button>
+    </form>
+    <a href="/muallif_qosh/">Muallif qoshish</a>
+    {% for i in mualliflar%}
+    <h3>{{i.id}}. <a href="/muallif/{{i.id}}/">{{i.ism}}.</a></h3>
+    {% endfor %}
+
+</body>
+</html>

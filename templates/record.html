@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recordlar</title>
+</head>
+<body>
+    <br><br>
+    <form action="/recordlar/" method="post"> {% csrf_token %}
+        {{forma.as_p}}
+        <button type="submit">Qo'shish</button>
+
+
+
+
+
+    </form>
+    <h1 style="margin-top:20px;color:red">Recordlar</h1>
+    <form action="/recordlar/" method="GET"> {% csrf_token %}
+        <input type="text" name="qidirish" >
+        <button type="submit">Qidirish</button>
+    </form>
+    {% for i in recordlar %}
+    <h3><a href="/tanlangan_record/{{i.id}}/">{{i}}.</a></h3>
+
+    {% endfor %}
+
+
+
+
+</body>
+</html>

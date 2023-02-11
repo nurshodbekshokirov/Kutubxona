@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tanlangan record</title>
+</head>
+<body>
+  <h2>Tanlangan record malumotlari</h2>
+  <h2>Talaba ismi:{{record.talaba}}. kitobi:{{record.kitob}} olgan sanasi:{{record.olingan_sana}}</h2>
+  <form method="post">{%csrf_token%}
+      <label>Qaytardi</label>
+        {% if record.qaytardi %}
+        <input type="checkbox" name="q" checked>
+        {% else %}
+        <input type="checkbox" name="q" >
+        {%endif%}
+      <label>Qaytargan sana</label>
+      <input type="date" name="q_s" value="{{record.qaytargan_sana}}">
+      <button type="submit">Yangilash</button>
+
+      <a href="/talabalar/"><button>Orqaga</button></a>
+
+  </form>
+
+  <br><br>
+  <button type="submit"><a href="/record_ochir/{{record.id}}/">O'chirish</a></button>
+
+
+</body>
+</html>
